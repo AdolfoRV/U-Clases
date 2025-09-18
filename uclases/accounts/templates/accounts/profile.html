@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+{% comment %} <div class="relative h-[480px] w-full gradient-hero">
+  <img alt="Beauchef" class="object-cover w-full h-full relative z-0" src="/static/arana.jpg">
+  <div class="z-10 flex flex-col items-center absolute top-28 left-0 right-0">
+    <span data-slot="avatar" class="relative flex shrink-0 overflow-hidden rounded-full size-32">
+      <img data-slot="avatar-image" class="aspect-square size-full object-cover" src="{{ user.profile.image.url|default:'/static/img/default-avatar.png' }}" alt="Avatar">
+    </span>
+    <h1 class="mt-6 text-4xl font-bold">
+        {% if user %}
+            {{ user.get_full_name }}
+        {% else %}
+            Nombre de Usuario
+        {% endif %}
+    </h1>
+    <h3 class="text-gray-300 text-lg"></h3>
+    <div id="stars-rating" class="flex flex-row items-center mt-3"></div>
+  </div>
+</div> {% endcomment %}
+
+{% endblock %}

@@ -1,0 +1,52 @@
+
+<nav id="main-navbar" class="fixed w-full z-40 transition-all duration-300">
+  <div class="container mx-auto flex items-center justify-between py-4">
+    <a class="text-xl font-bold text-primary flex items-center" href="/">
+      <span class="relative z-10">
+        <span class="text-glow text-foreground">U</span>-Clases
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-foreground/80 hover:text-primary transition-colors duration-300">
+        Inicio
+      </a>
+
+      {% if user.is_authenticated %}
+        <!-- Dropdown con avatar -->
+        <div class="relative group">
+          <button class="flex items-center focus:outline-none">
+            <img src="{{ user.profile.image.url|default:'/static/img/default-avatar.png' }}"
+                alt="avatar"
+                class="w-8 h-8 rounded-full border border-gray-300">
+          </button>
+          <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition">
+            <a href="/perfil/" class="block px-4 py-2 hover:bg-gray-100">Mi perfil</a>
+            <a href="/logout/" class="block px-4 py-2 hover:bg-gray-100">Cerrar sesión</a>
+          </div>
+        </div>
+      {% else %}
+        <a href="/login/" class="text-foreground/80 hover:text-primary transition-colors duration-300">
+          Iniciar sesión
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+{% block scripts %}
+<script>
+// Scroll effect
+window.addEventListener('scroll', function() {
+  const nav = document.getElementById('main-navbar');
+  if (window.scrollY > 12) {
+    nav.classList.add('sm:py-3', 'py-2', 'bg-background/80', 'backdrop-blur-md', 'shadow-xs');
+    nav.classList.remove('sm:py-5', 'py-4');
+  } else {
+    nav.classList.remove('sm:py-3', 'py-2', 'bg-background/80', 'backdrop-blur-md', 'shadow-xs');
+    nav.classList.add('sm:py-5', 'py-4');
+  }
+});
+</script>
+{% endblock %}
