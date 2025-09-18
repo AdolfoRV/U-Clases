@@ -36,7 +36,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
     
 	'home',
-	'accounts',
+	'user_auth',
 ]
 
 MIDDLEWARE = [
@@ -67,10 +67,15 @@ TEMPLATES = [
 	},
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",   # Motor de BD
+        "NAME": BASE_DIR / "db.sqlite3",          # Ruta al archivo .sqlite3
+    }
+}
 
-# Custom user model
-AUTH_USER_MODEL = 'accounts.User'
+
+WSGI_APPLICATION = 'core.wsgi.application'
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
