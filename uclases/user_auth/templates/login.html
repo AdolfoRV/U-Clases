@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Sign In{% endblock %}
 {% block content %}
-
-<div>
-    <div class="bg-card border border-border rounded-md shadow-md p-8 max-w-md mx-auto mt-12">
+{% include "includes/math-bg.html" %}
+<section id="login" class="min-h-screen items-center justify-center bg-background pt-20">
+    <div class="relative container bg-card border border-border rounded-md shadow-md p-10 max-w-md mx-auto mt-12">
         <h2 class="text-2xl font-bold mb-6 text-primary">Login</h2>
         <form method="post" novalidate>
             {% csrf_token %}
@@ -25,14 +25,10 @@
             </div>
             <button type="submit"
                 class="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_10px_rgba(245,73,39,0.5)] hover:scale-105 active:scale-95 w-full mt-2">Login</button>
-            <a href="{% url 'password_reset' %}" class="block mt-4 text-primary hover:underline text-center">Forgot
-                Password?</a>
+            <a href="{% url 'password_reset' %}" class="block mt-4 text-primary hover:underline text-center">Forgot Password?</a>
         </form>
-        <div class="mt-6 text-sm text-foreground text-center">
-            <small>© Jimmy APP</small>
-        </div>
     </div>
-</div>
+</section>
 {% endblock %}
 
 {% block js %}

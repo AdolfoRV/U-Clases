@@ -2,9 +2,10 @@
 {% load static %}
 {% block title %}Sign Up{% endblock %}
 {% block content %}
+{% include "includes/math-bg.html" %}
 
-<div>
-    <div class="bg-card border border-border rounded-md shadow-md p-8 max-w-md mx-auto mt-12">
+<div class="min-h-screen items-center justify-center bg-background pt-30">
+    <div class="relative container bg-card border border-border rounded-md shadow-md p-8 max-w-md mx-auto">
         <h2 class="text-2xl font-bold mb-6 text-primary">Register</h2>
         <form method="post" novalidate>
             {% csrf_token %}
@@ -41,9 +42,6 @@
             </div>
             <button type="submit" class="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_10px_rgba(245,73,39,0.5)] hover:scale-105 active:scale-95 w-full mt-2">Register</button>
         </form>
-        <div class="mt-6 text-sm text-foreground text-center">
-            <small>© Jimmy APP</small>
-        </div>
     </div>
 </div>
 
