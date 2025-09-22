@@ -134,4 +134,34 @@
   .animate-float {
     animation: float 6s ease-in-out forwards;
   }
+
+  /* Badges */
+  .badge { @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs; }
+  .badge-info {
+    color: #3b82f6; /* blue-500 */
+    border-color: color-mix(in oklab, #3b82f6 30%, transparent);
+    background-color: color-mix(in oklab, #3b82f6 12%, transparent);
+  }
+  .badge-warning {
+    color: #f59e0b; /* amber-500 */
+    border-color: color-mix(in oklab, #f59e0b 30%, transparent);
+    background-color: color-mix(in oklab, #f59e0b 12%, transparent);
+  }
+
+  /* Hero gradient overlay for readability */
+  .gradient-hero { position: relative; overflow: hidden; }
+  .gradient-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Funde la imagen con el color de fondo actual del tema */
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--background) 0%, transparent) 0%,
+      color-mix(in oklab, var(--background) 35%, transparent) 55%,
+      color-mix(in oklab, var(--background) 70%, transparent) 80%,
+      var(--background) 100%
+    );
+    pointer-events: none;
+  }
 }
