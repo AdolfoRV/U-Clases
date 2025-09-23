@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Crear cuenta{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer" />{% endblock %}
+
+{% block content %}
+<div class="min-h-screen items-center justify-center bg-background pt-30">
+    <div class="relative container bg-card border border-border rounded-md shadow-md p-8 max-w-md mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-primary">Register</h2>
+        {% if form.non_field_errors %}
+        <ul class="text-red-600 mb-4 text-sm list-disc pl-5">
+            {% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <label for="{{ form.username.id_for_label }}"
+                    class="block text-left mb-2 text-foreground font-medium">{{ form.username.label }}</label>
+                {{ form.username }}
+                {% for e in form.username.errors %}<div class="text-red-600 text-sm mb-2">{{ e }}</div>{% endfor %}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.email.id_for_label }}" class="block text-left mb-2 text-foreground font-medium">
+                    {{ form.email.label }}</label>
+                {{ form.email }}
+                {% for e in form.email.errors %}<div class="text-red-600 text-sm mb-2">{{ e }}</div>{% endfor %}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.password1.id_for_label }}"
+                    class="block text-left mb-2 text-foreground font-medium">{{ form.password1.label }}</label>
+                <div class="flex items-center gap-2">
+                    {{ form.password1 }}
+                    <button type="button"
+                        class="px-2 py-2 rounded-md bg-card border border-border hover:bg-primary hover:text-primary-foreground transition"
+                        data-target="id_password1" aria-label="Mostrar contraseña" aria-pressed="false">
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                        <span class="sr-only">Mostrar/Ocultar contraseña</span>
+                    </button>
+                </div>
+                {% for e in form.password1.errors %}<div class="text-red-600 text-sm mb-2">{{ e }}</div>{% endfor %}
+            </div>
+            <div class="mb-4">
+                <label for="{{ form.password2.id_for_label }}" class="block text-left mb-2 text-foreground font-medium">
+                    {{ form.password2.label }}
+                </label>
+                <div class="flex items-center gap-2">
+                    {{ form.password2 }}
+                    <button type="button"
+                        class="px-2 py-2 rounded-md bg-card border border-border hover:bg-primary hover:text-primary-foreground transition"
+                        data-target="id_password2" aria-label="Mostrar contraseña" aria-pressed="false">
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                        <span class="sr-only">Mostrar/Ocultar contraseña</span>
+                    </button>
+                </div>
+                {% for e in form.password2.errors %}<div class="text-red-600 text-sm mb-2">{{ e }}</div>{% endfor %}
+            </div>
+            <button type="submit"
+                class="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_10px_rgba(245,73,39,0.5)] hover:scale-105 active:scale-95 w-full mt-2">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.querySelectorAll('button[data-target]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const input = document.getElementById(btn.dataset.target);
+            if (!input) return;
+            const icon = btn.querySelector('i');
+
+            const showing = input.type === 'text';
+            input.type = showing ? 'password' : 'text';
+
+            // Cambia icono y estado accesible
+            icon.classList.toggle('fa-eye', showing);
+            icon.classList.toggle('fa-eye-slash', !showing);
+            btn.setAttribute('aria-pressed', String(!showing));
+            btn.setAttribute('aria-label', showing ? 'Mostrar contraseña' : 'Ocultar contraseña');
+        });
+    });
+</script>
+
+{% endblock %}
