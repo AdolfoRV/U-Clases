@@ -14,10 +14,10 @@
 				src="https://ucampus.uchile.cl/d/r/usuario/5e/5ecd9143ecb0df35ca7ba9ac92a9c803/perfil/d937b16ea715137dbf4a26d0224e1b77.jpg"
 			/>
 		</span>
-		<h1 class="mt-6 text-4xl font-bold text-glow text-white">
+		<h1 class="mt-6 text-4xl font-bold text-glow text-foreground">
 			Patricio Felmer A.
 		</h1>
-		<h3 class="text-gray-300 text-lg">
+		<h3 class="font-medium text-foreground/90 text-lg">
 			Profesor de Matemáticas - Universidad de Chile
 		</h3>
 		<div id="stars-rating" class="flex flex-row items-center mt-3">
@@ -43,7 +43,7 @@
 			<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="size-6 text-gray-400" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
 				<path d="m22 9.24-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"></path>
 			</svg>
-			<span class="ml-2 text-gray-300">
+			<span class="ml-2 text-sm text-foreground/90">
 				(3.88) • 24 reseñas
 			</span>
 		</div>
@@ -83,38 +83,28 @@
 			</div>
 			<div data-slot="card" class="bg-card text-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm mt-3 card-hover">
 				<div data-slot="card-content" class="px-6">
-					<h3 class="text-xl text-bold">📝 Atributos</h3>
-					<div class="flex flex-row flex-wrap gap-2 mt-3">
-						<span class="badge badge-info">competente</span><span class="badge badge-info">didáctico</span><span class="badge badge-info">innovador</span><span class="badge badge-warning">exigente</span>
-						<span class="badge badge-info">premiado</span>
-					</div>
+					<h3 class="text-xl text-bold">📚 Carrera y estudios</h3>
+					<p class="mt-2 text-foreground/60">
+						Ingeniería civil matematica en la Universidad de Chile. Doctorado en Matemáticas en la Universidad de Chicago. Profesor titular en la Universidad de Chile desde 1994. Ha recibido varios premios por su docencia e investigación.
+					</p>
 				</div>
 			</div>
 			<div data-slot="card" class="bg-card text-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm mt-3 card-hover">
 				<div data-slot="card-content" class="px-6">
-					<h3 class="text-xl text-bold">✨ Resumen</h3>
-					<p class="mt-2 text-gray-400">
+					<h3 class="text-xl text-bold">✍ Descripción</h3>
+					<p class="mt-2 text-foreground/60">
 						El Prof. Patricio Felmer destaca por su habilidad para explicar conceptos complejos de matemáticas de forma comprensible y rigurosa. Los Rp son valorados por fomentar el pensamiento crítico, aunque algunos
-						estudiantes prefieren un enfoque más tradicional. Su metodología innovadora genera buenos resultados, pero puede no ser adecuada para todos los estilos de aprendizaje.
 					</p>
-					<div class="flex flex-row items-center gap-1 text-foreground/60 mt-3">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-info size-4"
-						>
-							<circle cx="12" cy="12" r="10"></circle>
-							<path d="M12 16v-4"></path>
-							<path d="M12 8h.01"></path>
-						</svg>
-						<small class="font-bold">Generado por IA.</small>
+				</div>
+			</div>
+			<div data-slot="card" class="bg-card text-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm mt-3 card-hover">
+				<div data-slot="card-content" class="px-6">
+					<h3 class="text-xl text-bold">📝 Cursos dictados</h3>
+					<div class="flex flex-row flex-wrap gap-2 mt-3">
+						<span class="badge badge-info">Probabilidades</span>
+						<span class="badge badge-info">Introducción al Cálculo</span>
+						<span class="badge badge-info">Cálculo diferencial</span>
+						<span class="badge badge-warning">Análisis</span>
 					</div>
 				</div>
 			</div>
@@ -278,21 +268,6 @@
 					</div>
 					<button data-slot="button" class="cosmic-button w-full" type="submit" disabled>Enviar</button>
 				</form>
-			</div>
-		</div>
-		<div
-			data-slot="alert"
-			role="alert"
-			class="relative w-full rounded-lg border px-4 py-3 text-sm grid has-[&>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[&>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current text-yellow-500 bg-yellow-500/10 border-yellow-500/30"
-		>
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert">
-				<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
-				<path d="M12 9v4"></path>
-				<path d="M12 17h.01"></path>
-			</svg>
-			<div data-slot="alert-title" class="col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight">Sobre el rating</div>
-			<div data-slot="alert-description" class="col-start-2 grid justify-items-start gap-1 text-sm [&amp;_p]:leading-relaxed text-yellow-100">
-				La mayoría de las reseñas se interpretaron en el proceso de importación de datos con un algoritmo arbitrario. Puede que algunas reseñas no tengan rating coherente.
 			</div>
 		</div>
 		<div data-slot="card" class="bg-card text-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm">
